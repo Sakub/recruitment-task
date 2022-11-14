@@ -1,14 +1,16 @@
 import express from 'express'
+import DbService from './Services/Db'
 
 export default class App {
     public app: express.Application
     public port: number
 
-    constructor(controllers, port) {
+    constructor(controllers, port, private db: DbService) {
         this.app = express()
         this.port = port
         this.initMiddlewares()
         this.initControllers(controllers)
+        this.db.init()
     }
 
     private initMiddlewares() {
