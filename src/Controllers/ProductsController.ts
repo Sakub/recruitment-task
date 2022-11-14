@@ -10,7 +10,7 @@ export default class ProductsController {
 
     private initRoutes() {
         this.router.get(this.path, this.getAll)
-        this.router.post(this.path + '/:id', this.getSingle)
+        this.router.get(this.path + '/:id', this.getSingle)
     }
 
     private async getAll(request: express.Request, response: express.Response) {
